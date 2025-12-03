@@ -6,11 +6,12 @@ class Transaction:
         self.amount = float(amount)
         self.category = category.lower().strip()
         self.description = description
-        self.type = ttype #income/expense
+        self.type = ttype #This will be either 'income'/ 'expense'
 
 class Income(Transaction):
 #Child class inherited from parent
     def __init__(self, date, amount, category, description):
+        #The super() lets the parent class handle the setup
         super().__init__(date, amount, category, description, 'income')
 #child class inherited from parent
 
