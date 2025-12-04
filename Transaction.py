@@ -1,5 +1,4 @@
 #Transaction class(the parent class)
-
 class Transaction:
     def __init__(self, date, amount, category, description,ttype):
         self.date = date
