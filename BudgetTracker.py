@@ -1,24 +1,28 @@
+
+from datetime import datetime
+
 class BudgetTracker:
 #This class will hold list of transcations
     def __init__(self):
         self.transaction = []
 #This is store all the transaction in a list
+
     def add_income(self):
         print('.......... Add Income...........')
-        date = input('Enter Date (YYYY-MM-DD): ')
+        date = self.get_date()
         amount = self.get_amount()
-        category = input('Enter Category: ')
-        description = input('Enter Description: ')
+        category = input('Enter the Category: ')
+        description = input('Enter the Description: ')
         income = Income(date, amount, category, description) #creation of any object
         self.transaction.append(income)
         print('Income Added')
 
     def add_expense(self):
         print('.......... Add Expense...........')
-        date = input('Enter Date (YYYY-MM-DD): ')
+        date = self.get_date()
         amount = self.get_amount()
-        category = input('Enter Category: ')
-        description = input('Enter Description: ')
+        category = input('Enter the Category: ')
+        description = input('Enter the Description: ')
         expense = Expense(date, amount, category, description)
         self.transaction.append(expense)
         print('Expense Added')
@@ -27,7 +31,7 @@ class BudgetTracker:
     def list_transactions(self):
         print('.......... List Transactions............')
         if not self.transaction:
-            print('No Transactions')
+            print('The list is empty now')
             return
         for t in self.transaction:
             print(t.date, t.amount, t.category, t.description)
@@ -39,22 +43,22 @@ class BudgetTracker:
         print("a) By type")
         print("b) By category")
         print("c) By month (YYYY-MM)")
-        choice = input("Choose option(a,b,c: ")
+        choice = input("Choose option from (a,b,c): ")
 
-       if choice == "1":
+       if choice == "a":
            ttype = input("Enter the type (income/expense): ").lower()
            results = [t for t in self.transaction if t.type == ttype]
 
-       elif choice == "2":
+       elif choice == "b":
            cat = input("Enter the category of the transaction: ").lower()
            results = [t for t in self.transaction if t.category == cat]
 
-       elif choice == "3":
+       elif choice == "c":
            month = input("Enter the month (YYYY-MM) of the transaction: ")
            results = [t for t in self.transaction if t.date.startswith(month)]
 
        else:
-           print("Invalid filter option.")
+           print("Wrong option. Try again")
            return
 
     print("--- Filter Results ---")
@@ -66,10 +70,10 @@ class BudgetTracker:
     print()
 
 #This shows summary including total
-def show_summary(self):
+    def show_summary(self):
         print('.......... Show Summary............')
         if not self.transaction:
-            print('No data available')
+            print('No data entry yet')
             return
 
         total_income = sum(t.amount for t in self.transaction if t.type == "income")
@@ -86,15 +90,14 @@ def show_summary(self):
                 categories[t.category] = 0
             categories[t.category] += t.amount
 
-        print('by Category: ')
+        print('By Category: ')
         for c, amt in categories.items():
             print(c, amt)
         print()
 
-def get_amount(self):
-
+    def get_amount(self):
         while True:
-            index = input('Enter Amount: ')
+            index = input('Enter the Amount: ')
             try:
                 index = float(index)
                 if index <= 0:
@@ -103,4 +106,24 @@ def get_amount(self):
                     return index
             except:
                 print('Invalid input. Try again')
+
+    def get_date(self):
+        while True:
+            date_value = input('Enter the Date (YYYY-MM-DD) or press Enter for today: ')
+            if not date_value:
+                return datetime.now().strftime('%Y-%m-%d')
+
+            try:
+                datetime.strptime(date_value, '%Y-%m-%d')
+                return date_value
+            except:
+                print('Invalid date formate. Use YYYY-MM-DD format')
+
+
+
+
+
+
+
+
 
