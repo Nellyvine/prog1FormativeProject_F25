@@ -31,10 +31,10 @@ class BudgetTracker:
     def list_transactions(self):
         print('.......... List Transactions............')
         if not self.transaction:
-            print('The list is empty now')
+            print('The list of transaction empty now')
             return
         for t in self.transaction:
-            print(t.date, t.amount, t.category, t.description)
+            print(f"{t.date}:12 | {t.type:8} | {t.amount:8.2f} | {t.category:15} | {t.description}")
         print()
 
 #This filters transactions
@@ -61,12 +61,12 @@ class BudgetTracker:
            print("Wrong option. Try again")
            return
 
-    print("--- Filter Results ---")
+    print(".........Filter Results...............")
     if not results:
         print("No matching transactions found with that filter.")
     else:
         for t in results:
-            print(f"{t.date} | {t.type.upper()} | {t.amount} | {t.category} | {t.description}")
+            print(f"{t.date}:12 | {t.type:8} | {t.amount:8.2f} | {t.category:15} | {t.description}")
     print()
 
 #This shows summary including total
@@ -82,6 +82,7 @@ class BudgetTracker:
 
         print('Total Income: ', + total_income)
         print('Total Expense: ', + total_expense)
+
         print('Balance: ', + balance)
 
         categories = {}
