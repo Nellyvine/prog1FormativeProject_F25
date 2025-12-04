@@ -1,7 +1,9 @@
+from BudgetTracker import BudgetTracker
+
 # This is the main menu and program loop
 
 def main():
-    bugdet = budgettracker()
+    t = BudgetTracker()
 
     condition = True
 
@@ -17,15 +19,15 @@ def main():
         choice = int(input('Enter your choice from the menu above: '))
 
         if choice == 1:
-            bugdet.add_income()
+            t.add_income()
         elif choice == 2:
-            bugdet.add_expense()
+            t.add_expense()
         elif choice == 3:
-            bugdet.list_transactions()
+            t.list_transactions()
         elif choice == 4:
-            bugdet.show_summary()
+            t.show_summary()
         elif choice == 5:
-            bugdet.filter_transactions()
+            t.filter_transactions()
         elif choice == 0:
             print('Thank you for using BudgetTracker!')
             condition = False
@@ -34,8 +36,8 @@ def main():
 
 #This is to start the program
 
-        if __name__ == '__main__':
-            main()
+if __name__ == '__main__':
+    main()
 
 
 
