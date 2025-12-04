@@ -1,4 +1,3 @@
-from BudgetTracker import BudgetTracker
 
 # This is the main menu and program loop
 
@@ -8,7 +7,7 @@ def main():
     condition = True
 
     while condition:
-        print(' Menu of the Budget Tracker')
+        print('......Menu of the Budget Tracker......')
         print('1) Add Income')
         print('2) Add Expense')
         print('3) List Transactions')

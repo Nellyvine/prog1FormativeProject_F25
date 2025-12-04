@@ -2,7 +2,7 @@ class BudgetTracker:
 #This class will hold list of transcations
     def __init__(self):
         self.transaction = []
-#This is the empty transaction list
+#This is store all the transaction in a list
     def add_income(self):
         print('.......... Add Income...........')
         date = input('Enter Date (YYYY-MM-DD): ')
@@ -23,6 +23,7 @@ class BudgetTracker:
         self.transaction.append(expense)
         print('Expense Added')
 
+#This shows all the transactions made
     def list_transactions(self):
         print('.......... List Transactions............')
         if not self.transaction:
@@ -32,39 +33,40 @@ class BudgetTracker:
             print(t.date, t.amount, t.category, t.description)
         print()
 
+#This filters transactions
+    def filter_transactions(self):
+        print("--- Filter Transactions ---")
+        print("a) By type")
+        print("b) By category")
+        print("c) By month (YYYY-MM)")
+        choice = input("Choose option(a,b,c: ")
 
-def filter_transactions(self):
-    print("--- Filter Transactions ---")
-    print("a) By type")
-    print("b) By category")
-    print("c) By month (YYYY-MM)")
-    choice = input("Choose option: ")
+       if choice == "1":
+           ttype = input("Enter the type (income/expense): ").lower()
+           results = [t for t in self.transaction if t.type == ttype]
 
-    if choice == "1":
-        ttype = input("Enter type (income/expense): ").lower()
-        results = [t for t in self.transaction if t.type == ttype]
+       elif choice == "2":
+           cat = input("Enter the category of the transaction: ").lower()
+           results = [t for t in self.transaction if t.category == cat]
 
-    elif choice == "2":
-        cat = input("Enter category: ").lower()
-        results = [t for t in self.transaction if t.category == cat]
+       elif choice == "3":
+           month = input("Enter the month (YYYY-MM) of the transaction: ")
+           results = [t for t in self.transaction if t.date.startswith(month)]
 
-    elif choice == "3":
-        month = input("Enter month (YYYY-MM): ")
-        results = [t for t in self.transaction if t.date.startswith(month)]
-
-    else:
-        print("Invalid filter option.")
-        return
+       else:
+           print("Invalid filter option.")
+           return
 
     print("--- Filter Results ---")
     if not results:
-        print("No matching transactions found.")
+        print("No matching transactions found with that filter.")
     else:
         for t in results:
             print(f"{t.date} | {t.type.upper()} | {t.amount} | {t.category} | {t.description}")
     print()
 
-    def show_summary(self):
+#This shows summary including total
+def show_summary(self):
         print('.......... Show Summary............')
         if not self.transaction:
             print('No data available')
