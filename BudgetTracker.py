@@ -91,7 +91,7 @@ def show_summary(self):
             print(c, amt)
         print()
 
-    def get_amount(self):
+def get_amount(self):
 
         while True:
             index = input('Enter Amount: ')

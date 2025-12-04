@@ -28,7 +28,7 @@ def main():
         elif choice == 5:
             t.filter_transactions()
         elif choice == 0:
-            print('Thank you for using BudgetTracker!')
+            print('Thank you for using BudgetTracker')
             condition = False
         else:
             print('I did not understand that command, please try again.')

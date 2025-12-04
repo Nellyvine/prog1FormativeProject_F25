@@ -18,5 +18,4 @@ class Expense(Transaction):
     def __init__(self, date, amount, category, description):
         super().__init__(date, amount, category, description, 'expense')
 
-Transaction.income = Income
-Transaction.expense = Expense
+
