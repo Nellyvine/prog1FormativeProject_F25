@@ -1,17 +1,18 @@
 from Budgettracker import BudgetTracker
-
 # This is the main menu and program loop
 
 def main():
     t = BudgetTracker()
 
-    print('Welcome to BudgetTracker')
-    print('Track you Income and Expense with ease')
+    print('\nWelcome to BudgetTracker')
+    print('\nTrack you Income and Expense with ease')
 
     condition = True
 
     while condition:
-        print('Menu of the Budget Tracker')
+
+
+        print('\nMenu of the Budget Tracker')
         print('1) Add Income')
         print('2) Add Expense')
         print('3) List Transactions')
@@ -20,7 +21,7 @@ def main():
         print('0) Exit')
         print('.'*60)
 
-        choice = int(input('Enter your choice from the menu above: '))
+        choice = int(input('\nEnter your choice from the menu above: '))
 
         if choice == 1:
             t.add_income()
@@ -33,7 +34,7 @@ def main():
         elif choice == 5:
             t.show_summary()
         elif choice == 0:
-            print('Thank you for using BudgetTracker')
+            print('\nThank you for using BudgetTracker')
             condition = False
         else:
             print('Wrong choice, please try again.')

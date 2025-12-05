@@ -8,7 +8,7 @@ class BudgetTracker:
 
     # Add income
     def add_income(self):
-        print('.......... Add Income...........')
+        print('\n.......... Add Income...........')
         date = self.get_date()
         amount = self.get_amount()
         category = input('Enter the Category: ')
@@ -20,7 +20,7 @@ class BudgetTracker:
 
     # Add expense
     def add_expense(self):
-        print('.......... Add Expense...........')
+        print('\n.......... Add Expense...........')
         date = self.get_date()
         amount = self.get_amount()
         category = input('Enter the Category: ')
@@ -37,7 +37,7 @@ class BudgetTracker:
 
     # List all transactions
     def list_transactions(self):
-        print('.......... List Transactions............')
+        print('\n.......... List Transactions............')
         self.print_head()
 
         if not self.transaction:
@@ -50,12 +50,13 @@ class BudgetTracker:
 
     # Filter transactions
     def filter_transactions(self):
-        print(".......... Filter Transactions............")
+        print("\n.......... Filter Transactions............")
         print("a) By type")
         print("b) By category")
         print("c) By month (YYYY-MM)")
 
         choice = input("Choose option from (a, b, c): ")
+
 
         if choice == "a":
             ttype = input("Enter the type (income/expense): ").lower()
@@ -73,7 +74,7 @@ class BudgetTracker:
             print("Wrong option. Try again.")
             return
 
-        print("......... Filter Results ...............")
+        print("\n......... Filter Results ...............")
         if not results:
             print("No matching transactions found for that filter.")
         else:
@@ -84,7 +85,7 @@ class BudgetTracker:
 
     # Summary of budget
     def show_summary(self):
-        print('.......... Budget Summary............')
+        print('\n.......... Budget Summary............')
 
         if not self.transaction:
             print('No data entry yet')
