@@ -1,0 +1,19 @@
+﻿
+Repository Link: https://github.com/Nellyvine/prog1FormativeProject_F25.git
+Short reflection
+
+Reflections
+
+Using Object-oriented programming in Python helped deepen my understanding of the programming language and how to implement it into my projects. I learned about inheritance while creating my original class and subclass hierarchy, using super() to call methods from the parent class, and seeing how to use inheritance to create code that can be used more than once. I also learned about the importance of encapsulating data and methods into classes so users could use them without needing to know how they worked.
+
+Working with collections in Python, specifically list comprehensions, allowed me to write code that was cleaner and more efficient while filtering through transactions. This project reinforced that having extensive input validation and error handling is essential because I needed to anticipate how the user could enter the incorrect data and how to handle it gracefully with clear feedback using try-except blocks.
+
+Using git as a version control system and regularly committing my changes allowed me to follow my progress, as well as find and fix bugs by looking at a smaller portion of the overall progress.
+
+The most challenging part of the project was designing the filtering system to find multiple variables, while keeping the code clean and readable. Originally, I had trouble building the conditional statements without creating a lot of nested and repeated conditional statements. On the input() end, building the date formatting was a little confusing. I had to be sure to validate the user's input to ensure it was in the YYYY-MM-DD format. Additionally, ensuring that the amounts entered were greater than zero required me to create try-except blocks to validate user input correctly.
+
+At first, organizing the code into three different files (main.py, Budgettracker.py, Transaction.py) was confusing, especially the way to manage the imports between files. Finding the right balance between creating separate code files versus keeping similar code within the same file took a lot of trial and error to achieve a good understanding.
+
+If given more time to enhance this project, I would add warning notifications when a user's expenses reached a specified budget limit, implement an undo feature to erase the last transaction, and provide visualizations giving the user an understanding of their spending habits over a period of time. Additionally, I would provide unit tests for every method to validate all methods work correctly when using them, which would provide a much safer method when making future modifications.
+
+Lastly, I would restructure the method used for filtering to eliminate duplication of code, as well as design a better menu with appropriate error message descriptors for improved maintainability and user interaction experience.
