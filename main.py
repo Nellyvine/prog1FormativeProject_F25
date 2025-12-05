@@ -37,7 +37,7 @@ def main():
             print('\nThank you for using BudgetTracker')
             condition = False
         else:
-            print('Wrong choice, please try again.')
+            print('\nWrong choice, please try again.')
 
 #This is to start the program
 
