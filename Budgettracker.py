@@ -16,7 +16,7 @@ class BudgetTracker:
         income = Income(date, amount, category, description)
         self.transaction.append(income)
         print('Income Added')
-        print('.' * 60)
+        print('.' * 80)
 
     # Add expense
     def add_expense(self):
@@ -28,12 +28,12 @@ class BudgetTracker:
         expense = Expense(date, amount, category, description)
         self.transaction.append(expense)
         print('Expense Added')
-        print('.' * 60)
+        print('.' * 80)
 
     # Print header for tables
     def print_head(self):
         print(f"{'Date':<12} | {'Type':<8} | {'Amount':<10} | {'Category':<15} | Description")
-        print('.' * 60)
+        print('.' * 80)
 
     # List all transactions
     def list_transactions(self):
@@ -81,6 +81,7 @@ class BudgetTracker:
             self.print_head()
             for t in results:
                 print(f"{t.date:<12} | {t.type:<8} | {t.amount:<10.2f} | {t.category:<15} | {t.description}")
+                print('.' *80)
         print()
 
     # Summary of budget
@@ -97,9 +98,9 @@ class BudgetTracker:
 
         print("Total Income:  ", total_income)
         print("Total Expense: ", total_expense)
-        print('.' * 60)
+        print('.' * 80)
         print("Balance:       ", balance)
-        print('.' * 60)
+        print('.' * 80)
 
         categories = {}
         for t in self.transaction:
@@ -110,8 +111,7 @@ class BudgetTracker:
         print("By Category:")
         for c, amt in categories.items():
             print(c.upper(), ":", amt)
-
-        print('.' * 60)
+        print()
 
     # Get amount
     def get_amount(self):
