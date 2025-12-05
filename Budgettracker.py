@@ -1,23 +1,24 @@
-
+from Transaction import *
 from datetime import datetime
 
 class BudgetTracker:
-#This class will hold list of transcations
+    # This class will hold list of transactions
     def __init__(self):
         self.transaction = []
-#This is store all the transaction in a list
 
+    # Add income
     def add_income(self):
         print('.......... Add Income...........')
         date = self.get_date()
         amount = self.get_amount()
         category = input('Enter the Category: ')
         description = input('Enter the Description: ')
-        income = Income(date, amount, category, description) #creation of any object
+        income = Income(date, amount, category, description)
         self.transaction.append(income)
         print('Income Added')
-        print('.' *60)
+        print('.' * 60)
 
+    # Add expense
     def add_expense(self):
         print('.......... Add Expense...........')
         date = self.get_date()
@@ -27,61 +28,64 @@ class BudgetTracker:
         expense = Expense(date, amount, category, description)
         self.transaction.append(expense)
         print('Expense Added')
-        print('.' *60)
+        print('.' * 60)
 
-# This is a helper to print the table header so we don't repeat code
+    # Print header for tables
     def print_head(self):
-        print(f"{'Date':<12} | {'Type':<8} |  {'Amount':<10} |{'Category':<15} | {'Description'}")
-        print('.'*60)
+        print(f"{'Date':<12} | {'Type':<8} | {'Amount':<10} | {'Category':<15} | Description")
+        print('.' * 60)
 
-
-#This shows all the transactions made
+    # List all transactions
     def list_transactions(self):
         print('.......... List Transactions............')
         self.print_head()
+
         if not self.transaction:
-            print('The list of transaction empty now')
+            print('The list of transactions is empty now')
             return
+
         for t in self.transaction:
-            print(f"{t.date}:12 | {t.type:8} | {t.amount:8.2f} | {t.category:15} | {t.description}")
+            print(f"{t.date:<12} | {t.type:<8} | {t.amount:<10.2f} | {t.category:<15} | {t.description}")
         print()
 
-#This filters transactions
+    # Filter transactions
     def filter_transactions(self):
-        self.print_head()
-        print("--- Filter Transactions ---")
+        print(".......... Filter Transactions............")
         print("a) By type")
         print("b) By category")
         print("c) By month (YYYY-MM)")
-        choice = input("Choose option from (a,b,c): ")
 
-       if choice == "a":
-           ttype = input("Enter the type (income/expense): ").lower()
-           results = [t for t in self.transaction if t.type == ttype]
+        choice = input("Choose option from (a, b, c): ")
 
-       elif choice == "b":
-           cat = input("Enter the category of the transaction: ").lower()
-           results = [t for t in self.transaction if t.category == cat]
+        if choice == "a":
+            ttype = input("Enter the type (income/expense): ").lower()
+            results = [t for t in self.transaction if t.type == ttype]
 
-       elif choice == "c":
-           month = input("Enter the month (YYYY-MM) of the transaction: ")
-           results = [t for t in self.transaction if t.date.startswith(month)]
+        elif choice == "b":
+            cat = input("Enter the category: ").lower()
+            results = [t for t in self.transaction if t.category.lower() == cat]
 
-       else:
-           print("Wrong option. Try again")
-           return
+        elif choice == "c":
+            month = input("Enter the month (YYYY-MM): ")
+            results = [t for t in self.transaction if t.date.startswith(month)]
 
-    print(".........Filter Results...............")
-    if not results:
-        print("No matching transactions found with that filter.")
-    else:
-        for t in results:
-            print(f"{t.date}:12 | {t.type:8} | {t.amount:8.2f} | {t.category:15} | {t.description}")
-    print()
+        else:
+            print("Wrong option. Try again.")
+            return
 
-#This shows summary including total
+        print("......... Filter Results ...............")
+        if not results:
+            print("No matching transactions found for that filter.")
+        else:
+            self.print_head()
+            for t in results:
+                print(f"{t.date:<12} | {t.type:<8} | {t.amount:<10.2f} | {t.category:<15} | {t.description}")
+        print()
+
+    # Summary of budget
     def show_summary(self):
-        print('.......... Bugdet Summary............')
+        print('.......... Budget Summary............')
+
         if not self.transaction:
             print('No data entry yet')
             return
@@ -90,10 +94,11 @@ class BudgetTracker:
         total_expense = sum(t.amount for t in self.transaction if t.type == "expense")
         balance = total_income - total_expense
 
-        print('Total Income: ', + total_income)
-        print('Total Expense: ', + total_expense)
-        print('.' *60)
-        print('Balance: ', + balance)
+        print("Total Income:  ", total_income)
+        print("Total Expense: ", total_expense)
+        print('.' * 60)
+        print("Balance:       ", balance)
+        print('.' * 60)
 
         categories = {}
         for t in self.transaction:
@@ -101,14 +106,13 @@ class BudgetTracker:
                 categories[t.category] = 0
             categories[t.category] += t.amount
 
-        print('.'*60)
-        print('By Category: ')
+        print("By Category:")
         for c, amt in categories.items():
-            c = c.upper()
-            print(c, amt)
-        print()
-        print('.' *60)
+            print(c.upper(), ":", amt)
 
+        print('.' * 60)
+
+    # Get amount
     def get_amount(self):
         while True:
             index = input('Enter the Amount: ')
@@ -121,6 +125,7 @@ class BudgetTracker:
             except:
                 print('Invalid input. Try again')
 
+    # Get date
     def get_date(self):
         while True:
             date_value = input('Enter the Date (YYYY-MM-DD) or press Enter for today: ')
@@ -131,13 +136,4 @@ class BudgetTracker:
                 datetime.strptime(date_value, '%Y-%m-%d')
                 return date_value
             except:
-                print('Invalid date formate. Use YYYY-MM-DD format')
-
-
-
-
-
-
-
-
-
+                print('Invalid date format. Use YYYY-MM-DD format')
