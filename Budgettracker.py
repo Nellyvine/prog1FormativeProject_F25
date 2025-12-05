@@ -124,7 +124,7 @@ class BudgetTracker:
                 else:
                     return index
             except:
-                print('\nInvalid input. Try again')
+                print('Invalid input. Try again')
 
     # Get date
     def get_date(self):
@@ -137,4 +137,4 @@ class BudgetTracker:
                 datetime.strptime(date_value, '%Y-%m-%d')
                 return date_value
             except:
-                print('\nInvalid date format. Use YYYY-MM-DD format')
+                print('Invalid date format. Use YYYY-MM-DD format')
