@@ -4,16 +4,20 @@
 def main():
     t = BudgetTracker()
 
+    print('Welcome to BudgetTracker')
+    print('Track you Income and Expense with ease')
+
     condition = True
 
     while condition:
-        print('......Menu of the Budget Tracker......')
+        print('Menu of the Budget Tracker')
         print('1) Add Income')
         print('2) Add Expense')
         print('3) List Transactions')
         print('4) Filter Transactions')
         print('5) Show Summary')
         print('0) Exit')
+        print('.'*60)
 
         choice = int(input('Enter your choice from the menu above: '))
 
@@ -31,7 +35,7 @@ def main():
             print('Thank you for using BudgetTracker')
             condition = False
         else:
-            print('I did not understand that command, please try again.')
+            print('Wrong choice, please try again.')
 
 #This is to start the program
 

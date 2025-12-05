@@ -16,6 +16,7 @@ class BudgetTracker:
         income = Income(date, amount, category, description) #creation of any object
         self.transaction.append(income)
         print('Income Added')
+        print('.' *60)
 
     def add_expense(self):
         print('.......... Add Expense...........')
@@ -26,10 +27,18 @@ class BudgetTracker:
         expense = Expense(date, amount, category, description)
         self.transaction.append(expense)
         print('Expense Added')
+        print('.' *60)
+
+# This is a helper to print the table header so we don't repeat code
+    def print_head(self):
+        print(f"{'Date':<12} | {'Type':<8} |  {'Amount':<10} |{'Category':<15} | {'Description'}")
+        print('.'*60)
+
 
 #This shows all the transactions made
     def list_transactions(self):
         print('.......... List Transactions............')
+        self.print_head()
         if not self.transaction:
             print('The list of transaction empty now')
             return
@@ -39,6 +48,7 @@ class BudgetTracker:
 
 #This filters transactions
     def filter_transactions(self):
+        self.print_head()
         print("--- Filter Transactions ---")
         print("a) By type")
         print("b) By category")
@@ -71,7 +81,7 @@ class BudgetTracker:
 
 #This shows summary including total
     def show_summary(self):
-        print('.......... Show Summary............')
+        print('.......... Bugdet Summary............')
         if not self.transaction:
             print('No data entry yet')
             return
@@ -82,7 +92,7 @@ class BudgetTracker:
 
         print('Total Income: ', + total_income)
         print('Total Expense: ', + total_expense)
-
+        print('.' *60)
         print('Balance: ', + balance)
 
         categories = {}
@@ -91,10 +101,13 @@ class BudgetTracker:
                 categories[t.category] = 0
             categories[t.category] += t.amount
 
+        print('.'*60)
         print('By Category: ')
         for c, amt in categories.items():
+            c = c.upper()
             print(c, amt)
         print()
+        print('.' *60)
 
     def get_amount(self):
         while True:
