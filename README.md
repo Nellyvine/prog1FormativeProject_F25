@@ -22,7 +22,7 @@ A simple command-line budget tracking application built with Python. Users can r
 ## Installation
 
 ```bash
-git clone https://github.com/ypoorun/prog1FormativeProject_F25.git
+git clone https://github.com/Nellyvine/prog1FormativeProject_F25.git
 cd prog1FormativeProject_F25
 ```
 
