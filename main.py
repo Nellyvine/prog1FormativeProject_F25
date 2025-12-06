@@ -18,7 +18,7 @@ def main():
             print('4) Filter Transactions')
             print('5) Show Summary')
             print('0) Exit')
-            print('.'*60)
+            print('.'*80)
             try:
                 choice = int(input('\nEnter your choice from the menu above: '))
 
