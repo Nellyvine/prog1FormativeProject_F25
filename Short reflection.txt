@@ -2,8 +2,6 @@
 
 Short reflection
 
-Reflections
-
 Using Object-oriented programming in Python helped deepen my understanding of the programming language and how to implement it into my projects.
 I learned about inheritance while creating my original class and subclass hierarchy, using super() to call methods from the parent class,
 and seeing how to use inheritance to create code that can be used more than once. I also learned about the importance of encapsulating data and
